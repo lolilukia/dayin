@@ -123,10 +123,12 @@
       <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
     </div><!-- /.carousel -->
     <div class="popular">
-      <ul class="nav nav-pills">
-        <li class="active"><a href="#">最新</a></li>
-        <li><a href="#">最热</a></li>
-      </ul>
+      <Tabs size="small" value="newest">
+          <Tab-pane label="newest" name="newest">
+          </Tab-pane>
+          <Tab-pane label="hottest" name="hottest">
+          </Tab-pane>
+      </Tabs>
       <div class="row-fluid">
         <div class="span4">
           <div class="p_contain">
@@ -138,14 +140,10 @@
           </div>
         </div>
         <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+
         </div>
         <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+          
         </div>
       </div>
     </div>
@@ -492,7 +490,7 @@ a {
   background-color: rgba(255,255,255,0.4);
   margin: 0 auto;
   width: 65%;
-  height: 130px;
+  height: 30%;
   z-index: 11;
   margin-bottom: 50px;
 }
