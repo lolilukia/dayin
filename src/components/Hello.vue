@@ -102,7 +102,7 @@
                 </el-col>
                 <el-col :span="4" :offset="1">
                   <div class="grid-content">
-                    <button class="btn1 btn1--df btn1--green">搜索</button>
+                    <button id="find" class="btn1 btn1--df btn1--green">搜索</button>
                   </div>
                 </el-col>
               </el-row>
@@ -143,7 +143,7 @@
 
         </div>
         <div class="span4">
-          
+
         </div>
       </div>
     </div>
@@ -151,6 +151,22 @@
 </template>
 
 <script>
+
+    $('#find').click(
+        function () {
+          $.ajax({
+            type : 'Get',
+            dataType : 'jsonp',
+            url : 'php/data/allprovinces.json',
+            success : function () {
+                console.log(data)
+
+            }
+          })
+        }
+    );
+
+
 //级联菜单
 export default {
   data() {
