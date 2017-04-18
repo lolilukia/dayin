@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-sm-12 col-md-7">
             <p>
-              © Sylius 2014 &ndash; 2017. Sylius ® is a registered trademark of <a href="http://pjedrzejewski.com" target="_blank"><strong>Paweł Jędrzejewski</strong></a>.
+              大隐网保留一切权利 <a href="http://wangpeng.life" target="_blank"><strong>详情见创始人的博客</strong></a>.
                 </p>
           </div>
           <div class="col-sm-12 col-md-5">
@@ -20,4 +20,13 @@
 </script>
 <style>
 
+.dfooter{
+  height:40px;
+  background-color: #1abc9c;
+}
+ .dfooter p{
+  text-align: center;
+    color:white;
+    padding-top: 1%;
+  }
 </style>

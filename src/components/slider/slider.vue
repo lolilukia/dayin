@@ -11,7 +11,7 @@
               <el-row type="flex" class="row-bg" justify="space-around">
                 <el-col :span="6">
                   <div class="grid-content">
-                    <div class="block">
+                    <div class="block" v-on:click="test">
                       <el-cascader
                         class="el_input"
                         size="large"
@@ -342,6 +342,17 @@
       };
     },
     methods: {
+      test(){
+        console.log('call');
+        $.ajax({
+          type: 'Get',
+          dataType : 'jsonp',
+          url : 'php/data/allprovinces.json',
+          success : function (data) {
+            console.log(data);
+          }
+        });
+      },
       //
       handleChange(value) {
         console.log(value);
