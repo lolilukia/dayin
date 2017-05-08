@@ -1,29 +1,24 @@
 <template>
   <div id="app">
     <nav_bar></nav_bar>
-    <slider></slider>
-    <commend></commend>
-    <hot_location></hot_location>
-    <download></download>
+    <router-view></router-view>
     <dfooter></dfooter>
   </div>
 </template>
 
 <script>
 import nav_bar from './components/nav_bar/nav_bar.vue';
-import slider from './components/slider/slider.vue';
-import commend from './components/commend/commend.vue';
-import hot_location from './components/hot_location/hot_location.vue';
-import download from './components/download/download.vue';
+import homepage from './components/homepage/homepage.vue';
 import dfooter from './components/dfooter/dfooter.vue';
+import about from './components/about/about.vue';
+import display from './components/display/display.vue'
 export default {
   name: 'app',
   components: {
     nav_bar: nav_bar,
-    slider: slider,
-    commend: commend,
-    hot_location: hot_location,
-    download: download,
+    homepage: homepage,
+    display: display,
+    about: about,
     dfooter: dfooter
   }
 }
