@@ -1,12 +1,12 @@
 <template>
   <div class="dfooter">
     <footer class="container-fluid">
-      <div class="container">
+      <div class="footer_contain">
         <div class="row">
           <div class="col-sm-12 col-md-7">
             <p>
-              © Sylius 2014 &ndash; 2017. Sylius ® is a registered trademark of <a href="http://pjedrzejewski.com" target="_blank"><strong>Paweł Jędrzejewski</strong></a>.
-                </p>
+              © dudujing 2017 &ndash; 2017. <a href="http://lolilukia.com" target="_blank"><strong>dudujing</strong></a> ® is a baby of dudu country.
+            </p>
           </div>
           <div class="col-sm-12 col-md-5">
           </div>
@@ -19,5 +19,17 @@
 
 </script>
 <style>
-
+  .container-fluid{
+    background: #202020;
+    color: #959595;
+  }
+  .footer_contain{
+    padding: 15px;
+    margin: 0 auto;
+  }
+  .row{
+    font-size: 13px;
+    text-align: center;
+    color: #555;
+  }
 </style>

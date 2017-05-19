@@ -2,7 +2,7 @@
   <div class="elements">
     <div class="hostel_detail">
       <div class="img_contain">
-        <img class="hostel_img" src="../../../assets/img/c1.jpg"/>
+        <img class="hostel_img" src="../../../../static/img/c1.jpg"/>
       </div>
       <div class="hostel_info">
         <span class="hostel_name">浦江精选酒店</span>

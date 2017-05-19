@@ -1,7 +1,7 @@
 <template>
   <div class="slider upper">
-    <div id="myCarousel" class="carousel slide">
-      <div class="carousel-inner">
+    <div class="block">
+      <el-carousel width="100%" height="500px">
         <div class="container">
           <div class="slogan">
             <h1 class="slogan_title">大隐隐于市</h1>
@@ -13,7 +13,6 @@
                   <div class="grid-content">
                     <div class="block">
                       <el-cascader
-                        class="el_input"
                         size="large"
                         expand-trigger="hover"
                         :options="options"
@@ -73,43 +72,36 @@
             </div>
           </div>
         </div>
-        <div class="item active">
-          <img src="../../../assets/img/xm.jpeg" alt="">
-        </div>
-        <div class="item">
-          <img src="../../../assets/img/hz.jpeg" alt="">
-        </div>
-        <div class="item">
-          <img src="../../../assets/img/wuzhen.jpeg" alt="">
-        </div>
-      </div>
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+        <el-carousel-item v-for="item in imgSrc" :key="item">
+          <img class="carousel_img" v-bind:src=item alt="">
+        </el-carousel-item>
+      </el-carousel>
     </div>
   </div>
 </template>
-<script>
+<script type="text/ecmascript-6">
   export default{
-    data() {
-      var options = [];
+    created(){
       $.ajax({
         type : 'GET',
         dataType : 'json',
         url : 'http://localhost:8888/index.php?r=locate/dest',
-        cache:false,
-        async: false,
         data: {type: 'destination'},
         success : function (data) {
-          options = data;
+          this.options = data;
         }.bind(this),
         error:function(){
-          console.log('error')
+          console.log('error');
         }
       });
+    },
+    data() {
+      var options = [];
       return {
         options: options,
         selectedOptions: [],
         selectedOptions2: [],
+        imgSrc: ["/static/img/xm.jpeg","/static/img/hz.jpeg","/static/img/wuzhen.jpeg"],
         //Time selector
         pickerOptions2: {
           shortcuts: [{
@@ -163,7 +155,6 @@
       };
     },
     methods: {
-      //
       handleChange(value) {
         console.log(value);
       },
@@ -177,9 +168,6 @@
 <style lang="stylus" rel="stylesheet/stylus">
   @import '../../../style/mixin.css';
   @import '../../../style/base.styl';
-  .el_input{
-    width: 100%;
-  }
   .slogan{
     absolute_layout(26%, 25%);
     right: 50%;
@@ -192,32 +180,11 @@
     font-weight: 600;
   }
   /* Carousel base class */
-  #myCarousel{
-    margin-top: -40px;
-  }
-  .carousel {
-    position: relative;
-    z-index: 9;
-  }
-  .carousel-control {
-    height: 80px;
-    margin-top: 0;
-    font-size: 120px;
-    text-shadow: 0 1px 1px rgba(0,0,0,.4);
-    background-color: transparent;
-    border: 0;
-    z-index: 11;
-  }
-
-  .carousel .item {
-    height: 500px;
-  }
-  .carousel img {
+  .carousel_img {
     absolute_layout(0, 0);
     min-width: 100%;
     height: 500px;
   }
-
   .carousel-caption {
     background-color: rgba(255,255,255,0.4) !important;
     margin: 0 auto;
@@ -238,11 +205,7 @@
       margin-bottom: 0;
       width: auto;
     }
-
-    .carousel .item {
-      height: 500px;
-    }
-    .carousel img {
+    .carousel_img {
       size(auto, 500px);
     }
   }
@@ -250,15 +213,7 @@
 
   @media (max-width: 767px) {
 
-    .carousel {
-      margin-left: -20px;
-      margin-right: -20px;
-    }
-
-    .carousel .item {
-      height: 300px;
-    }
-    .carousel img {
+    .carousel_img {
       height: 300px;
     }
     .carousel-caption {
@@ -283,7 +238,7 @@
     padding: 10px 0;
     background-color: transparent;
   }
-  .carousel{
-    margin-bottom: -10px;
+  .el-carousel__container{
+    height: 500px !important;
   }
 </style>

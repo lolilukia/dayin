@@ -11,7 +11,8 @@ import nav_bar from './components/nav_bar/nav_bar.vue';
 import homepage from './components/homepage/homepage.vue';
 import dfooter from './components/dfooter/dfooter.vue';
 import about from './components/about/about.vue';
-import display from './components/display/display.vue'
+import display from './components/display/display.vue';
+import center from './components/center/center.vue';
 export default {
   name: 'app',
   components: {
@@ -19,7 +20,8 @@ export default {
     homepage: homepage,
     display: display,
     about: about,
-    dfooter: dfooter
+    dfooter: dfooter,
+    center: center
   }
 }
 </script>

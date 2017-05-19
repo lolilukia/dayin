@@ -1,7 +1,7 @@
 <template>
   <div class="selector">
     <div class="loc_img">
-      <img class="header_img" src="../../../assets/img/shanghai.jpg"/>
+      <img class="header_img" src="../../../../static/img/shanghai.jpg"/>
       <div class="loc_des">
         <p class="loc_name">上海</p><br>
         <p class="loc_detail">有234家青旅，212家可订</p>
