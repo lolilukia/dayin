@@ -1,7 +1,7 @@
 <template>
   <ul class="nav pull-right">
     <el-dropdown menu-align="start" @command="handleCommand">
-      <el-button class="login_btn" type="text">{{username}}
+      <el-button class="login_btn" type="text" v-model="username">{{username}}
         <i class="el-icon-caret-bottom el-icon--right"></i>
       </el-button>
       <el-dropdown-menu slot="dropdown">

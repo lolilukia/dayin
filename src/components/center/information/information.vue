@@ -78,7 +78,9 @@
     data(){
       return{
         pickerOptions0: {
-
+          disabledDate(time) {
+            return time.getTime() > Date.now() - 8.64e7;
+          }
         },
         imageUrl: '/static/img/c1.jpg',
         isEdit: false,
@@ -130,21 +132,26 @@
       },
       submitEdit(){
         var state = {};
+        var name = this.$store.state.username;
+        var birth = this.form.editBirth + ' 00:00:00';
+        var gender = this.form.sex;
+        var intro = this.form.intro;
         $.ajax({
           type : 'POST',
           dataType : 'json',
-          url : 'http://localhost:8888/index.php?r=info/edit',
+          url : 'http://localhost:8888/index.php?r=edit/edit',
           cache : false,
           async : false,
           data : {
-            action: 'edit',
-            username: this.$store.state.username,
-            birthday: this.form.editBirth + ' 00:00:00',
-            gender: this.form.sex,
-            intro: this.form.intro
+              action: 'edit',
+              username: name,
+              birthday: birth,
+              gender: gender,
+              intro: intro
           },
           success : function (data) {
             state = data;
+            console.log(data);
           }.bind(this),
           error:function(){
             console.log('error')

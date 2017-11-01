@@ -18,7 +18,22 @@
            </el-col>
          </el-row>
        </el-tab-pane>
-       <el-tab-pane label="newest" name="second"></el-tab-pane>
+       <el-tab-pane label="newest" name="second">
+         <el-row type="flex" class="row-bg" justify="space-between">
+           <el-col :span="6" v-for="item in location" :offset="0">
+             <el-card :body-style="{ padding: '0px' }">
+               <img v-bind:src=item.img_src class="image">
+               <div style="padding: 14px;">
+                 <span class="name">{{item.hostelName}}</span>
+                 <div class="bottom clearfix">
+                   <span class="time">还剩{{item.restNumber}}间</span>
+                   <span class="button">¥{{item.price}}</span>
+                 </div>
+               </div>
+             </el-card>
+           </el-col>
+         </el-row>
+       </el-tab-pane>
      </el-tabs>
    </div>
  </div>

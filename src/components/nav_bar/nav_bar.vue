@@ -1,6 +1,6 @@
 <template>
   <div class="nav_bar">
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -8,19 +8,19 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand clear_link"><router-link to="/">大隐</router-link></a>
+          <router-link to="/"><a class="brand clear_link">大隐</a></router-link>
           <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active"><a><router-link to="/">首页</router-link></a></li>
-              <li><a class="clear_link"><router-link to="/about">关于</router-link></a></li>
-              <li><a href="#contact">加入我们</a></li>
+            <ul class="nav navbar-nav">
+              <li><router-link to="/"><a class="clear_link">首页</a></router-link></li>
+              <li><router-link to="/about"><a class="clear_link">关于</a></router-link></li>
+              <li><router-link to="/contact"><a class="clear_link">加入我们</a></router-link></li>
             </ul>
             <logged @findLogin="getLogin" v-if="isLogin"></logged>
             <unlogged @getLogin="checkLogin" v-else></unlogged>
           </div><!--/.nav-collapse -->
         </div>
       </div>
-    </div>
+    </nav>
   </div>
 </template>
 <script>
@@ -61,7 +61,7 @@
     margin: 0 10px;
   }
   a {
-    color: #42b983;
+    text-decoration: none !important;
   }
   @media (max-width: 979px) {
     .container{
@@ -77,5 +77,11 @@
     .navbar-inner {
       margin: -20px;
     }
+  }
+  .router-link-active{
+    text-decoration: none;
+  }
+  .clear_link{
+    color: Silver !important;
   }
 </style>

@@ -34,5 +34,7 @@
   }
 </script>
 <style>
-
+  .el-submenu__icon-arrow{
+    right: 8% !important;
+  }
 </style>

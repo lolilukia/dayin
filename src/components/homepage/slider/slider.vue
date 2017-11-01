@@ -16,7 +16,7 @@
                         size="large"
                         expand-trigger="hover"
                         :options="options"
-                        v-model="selectedOptions2"
+                        v-model="selectProvince"
                         @change="handleChange">
                       </el-cascader>
                     </div>
@@ -28,7 +28,7 @@
                       <el-date-picker
                         class="el_input"
                         size="large"
-                        v-model="value7"
+                        v-model="DateInterval"
                         type="daterange"
                         align="right"
                         placeholder="选择入住日期区间"
@@ -39,7 +39,7 @@
                 </el-col>
                 <el-col :span="6">
                   <div class="grid-content">
-                    <el-select size="large" class="el_input" v-model="value" placeholder="请选择">
+                    <el-select size="large" class="el_input" v-model="personNumber" placeholder="请选择">
                       <el-option
                         v-for="item in people_number"
                         :label="item.label"
@@ -58,14 +58,14 @@
                       size="large"
                       placeholder="酒店名等关键词"
                       icon="search"
-                      v-model="input2"
+                      v-model="keywordSearch"
                       :on-icon-click="handleIconClick">
                     </el-input>
                   </div>
                 </el-col>
                 <el-col :span="4" :offset="1">
                   <div class="grid-content">
-                    <button class="btn1 btn1--lg btn1--green">搜&nbsp;索</button>
+                    <button class="btn1 btn1--md btn1--green">搜&nbsp;索</button>
                   </div>
                 </el-col>
               </el-row>
@@ -100,10 +100,13 @@
       return {
         options: options,
         selectedOptions: [],
-        selectedOptions2: [],
+        selectProvince: [],
         imgSrc: ["/static/img/xm.jpeg","/static/img/hz.jpeg","/static/img/wuzhen.jpeg"],
         //Time selector
         pickerOptions2: {
+          disabledDate(time) {
+            return time.getTime() <= Date.now() - 8.64e7;
+          },
           shortcuts: [{
             text: '最近一周',
             onClick(picker) {
@@ -131,7 +134,7 @@
           }]
         },
         value6: '',
-        value7: '',
+        DateInterval: '',
         //Person number selector
         people_number: [{
           value: 'one',
@@ -149,9 +152,9 @@
           value: 'five',
           label: '5人'
         }],
-        value: '',
+        personNumber: '',
         //search input
-        input2: ''
+        keywordSearch: ''
       };
     },
     methods: {
